@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<p>Click the button to demonstrate the prompt box.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo1"></p>
+<p id="demo2"></p>
+<p id="demo3"></p>
+<p id="demo4"></p>
+<p id="demo5"></p>
+
+<script>
+var amount = 5000;
+var comission1 = (10/100) * amount;
+
+function myFunction() {
+  var person = prompt("Please enter your name");
+  if(person == "null" || person == null || person == "" ){
+    //document.getElementById("demo1").innerHTML = "Please Enter valid data";
+    person = prompt("Please enter your name");
+  }
+  else if (person != null) {
+    var child1 = prompt("Do you have child? if yes then write Y else N");
+    if(child1 == "N"){
+        document.getElementById("demo1").innerHTML = "Total member is: 1";
+        document.getElementById("demo2").innerHTML = "Parent name is: " +person;
+        document.getElementById("demo3").innerHTML = "Your comission is: " +comission1;
+    }
+    else if(child1 == "Y"){
+        var childname = prompt("Enter child name seprated by , :");
+        var array = childname.split(",");
+        var length = array.length;
+        document.getElementById("demo1").innerHTML = "Total member is: " +(length+1);
+        document.getElementById("demo2").innerHTML = "Parent name is: " +person;
+        document.getElementById("demo3").innerHTML = "child are: " +array ;
+        document.getElementById("demo4").innerHTML = "Comission of parent is: " + (length * ((10/100) * amount));
+        document.getElementById("demo5").innerHTML = "Comission of  each child is: " +(5/100) * amount;
+                
+    }
+    else{
+    document.getElementById("demo1").innerHTML = "Please Enter valid data";
+  }
+  }
+     
+}
+</script>
+</body>
+</html>
